@@ -10,16 +10,19 @@ public class BadBubble : MonoBehaviour
     [SerializeField] private float followDistance;
     [SerializeField] private float moveSpeed;
     
-    private Transform player;
+    private PlayerHealth player;
     private bool isAggroed;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
     }
 
     private void Update()
     {
+        if(player.IsStealth)
+            return;
+        
         var distance = Vector3.Distance(player.transform.position, transform.position);
         if (distance <= detectionDistance)
         {
@@ -38,7 +41,7 @@ public class BadBubble : MonoBehaviour
 
     void ChasePlayer()
     {
-        Vector3 direction = (player.position - transform.position).normalized;
+        Vector3 direction = (player.transform.position - transform.position).normalized;
         transform.position += direction * (moveSpeed * Time.deltaTime);
     }
 

@@ -10,7 +10,7 @@ public class StealthBubble : MonoBehaviour
     [SerializeField] private float maxAir = 100f;
     [SerializeField] private float currentAir;
     [SerializeField] private float decayRate = 1f;
-    [Range(0f, 1f)] float popThreshold = 0.2f;
+    [Range(0f, 1f)] [SerializeField] float popThreshold = 0.2f;
 
     private float _airT;
 

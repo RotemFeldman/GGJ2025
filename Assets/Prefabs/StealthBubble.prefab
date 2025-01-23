@@ -101,6 +101,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a92a812498d02543a817fadfeabbf79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxAir: 100
+  currentAir: 0
+  decayRate: 4
+  popThreshold: 0.4
 --- !u!58 &7035182110479633103
 CircleCollider2D:
   m_ObjectHideFlags: 0
