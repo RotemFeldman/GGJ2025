@@ -253,6 +253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5686488464658749918}
   - component: {fileID: 3843808718633158941}
+  - component: {fileID: 4878829413683241173}
   - component: {fileID: 1685441470688642701}
   - component: {fileID: 8960933212462938864}
   - component: {fileID: 1157845846622403976}
@@ -398,6 +399,20 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &4878829413683241173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7804817118969125348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6fbba888e396ff4eb172fb79208c4c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupSprite: {fileID: 5401441535541909182}
+  pickedUp: 0
 --- !u!114 &1685441470688642701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,8 +428,7 @@ MonoBehaviour:
   _playerVisual: {fileID: 1866216774578521714}
   maxAir: 100
   currentAir: 0
-  decayRate: 5
-  AirT: 0
+  decayRate: 0
   maxScale: {x: 2, y: 2, z: 2}
   minScale: {x: 0, y: 0, z: 0}
 --- !u!114 &8960933212462938864
@@ -460,4 +474,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

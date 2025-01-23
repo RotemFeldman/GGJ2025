@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Pickup
+  - GoodBubble
+  - BadBubble
+  - StealthBubble
   layers:
   - Default
   - TransparentFX

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerSizeManager : MonoBehaviour
+public class PlayerAirManager : MonoBehaviour
 {
     [SerializeField] private GameObject _playerVisual;
 
@@ -26,5 +26,21 @@ public class PlayerSizeManager : MonoBehaviour
         
         Vector3 newScale = Vector3.Lerp(minScale, maxScale, _airT);
         _playerVisual.transform.localScale = newScale;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("GoodBubble"))
+        {
+            var gains = other.gameObject.GetComponent<GoodBubble>().AirAmount;
+            currentAir += gains;
+            Destroy(other.gameObject);
+        }
+        else if (other.gameObject.CompareTag("BadBubble"))
+        {
+            var lose = other.gameObject.GetComponent<BadBubble>().Damage;
+            currentAir -= lose;
+            Destroy(other.gameObject);
+        }
     }
 }
