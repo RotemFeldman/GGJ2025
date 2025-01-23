@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 1157845846622403976}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -425,10 +425,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598e2142aa98b0c4ca11f7e649ca5f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsStealth: 0
   _playerVisual: {fileID: 1866216774578521714}
   maxAir: 100
   currentAir: 0
-  decayRate: 0
+  decayRate: 2
   maxScale: {x: 2, y: 2, z: 2}
   minScale: {x: 0, y: 0, z: 0}
 --- !u!114 &8960933212462938864

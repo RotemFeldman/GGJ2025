@@ -1,8 +1,10 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 
-public class PlayerAirManager : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
+    public bool IsStealth;
     [SerializeField] private GameObject _playerVisual;
 
     [SerializeField] private float maxAir = 100f;
@@ -42,5 +44,18 @@ public class PlayerAirManager : MonoBehaviour
             currentAir -= lose;
             Destroy(other.gameObject);
         }
+        else if (other.gameObject.CompareTag("StealthBubble"))
+        {
+            var bubble = other.gameObject.GetComponent<StealthBubble>();
+            bubble.OnPopped += StealthBubblePopped;
+            IsStealth = true;
+            bubble.Activate(transform);
+        }
+    }
+    
+
+    void StealthBubblePopped()
+    {
+        IsStealth = false;
     }
 }
