@@ -9,7 +9,7 @@ public class PlayerSizeManager : MonoBehaviour
     [SerializeField] private float currentAir;
     [SerializeField] private float decayRate = 1f;
 
-    public float AirT;
+    private float _airT;
     
     [SerializeField] Vector3 maxScale = Vector3.one;
     [SerializeField] Vector3 minScale = Vector3.zero;
@@ -22,9 +22,9 @@ public class PlayerSizeManager : MonoBehaviour
     private void Update()
     {
         currentAir -= decayRate * Time.deltaTime;
-        AirT = currentAir / maxAir;
+        _airT = currentAir / maxAir;
         
-        Vector3 newScale = Vector3.Lerp(minScale, maxScale, AirT);
+        Vector3 newScale = Vector3.Lerp(minScale, maxScale, _airT);
         _playerVisual.transform.localScale = newScale;
     }
 }

@@ -10,14 +10,15 @@ public class PlayerPickup : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Pickup"))
-        {
-            pickedUp = true;
-            var pickup = other.gameObject.GetComponent<Pickup>();
-            pickupSprite.sprite = pickup.spriteRenderer.sprite;
-            pickupSprite.color = pickup.spriteRenderer.color;
+        if(!pickedUp)
+            if (other.gameObject.CompareTag("Pickup"))
+            {
+                pickedUp = true;
+                var pickup = other.gameObject.GetComponent<Pickup>();
+                pickupSprite.sprite = pickup.spriteRenderer.sprite;
+                pickupSprite.color = pickup.spriteRenderer.color;
             
-            Destroy(other.gameObject);
-        }
+                Destroy(other.gameObject);
+            }
     }
 }
