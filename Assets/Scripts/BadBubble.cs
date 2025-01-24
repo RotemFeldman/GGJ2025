@@ -13,27 +13,26 @@ public class BadBubble : MonoBehaviour
     
     private PlayerHealth player;
     private bool isAggroed;
-    [SerializeField] private bool isPatrolling;
-    [SerializeField] private List<Transform> patrolPoints;
-    private int nextPatrolPoint;
+    [SerializeField] public bool isPatrolling;
+    [SerializeField] public List<Vector3> patrolPoints = new List<Vector3>();
+    private int nextPatrolPoint = 0;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        
     }
 
     private void Update()
     {
-        if(player.IsStealth)
-            return;
         
         var distance = Vector3.Distance(player.transform.position, transform.position);
-        if (distance <= detectionDistance)
+        if (distance <= detectionDistance && !player.IsStealth)
         {
-            isAggroed = false;
+            isAggroed = true;
            ChasePlayer();
         }
-        else if (distance <= followDistance && isAggroed)
+        else if (distance <= followDistance && isAggroed && !player.IsStealth)
         {
             ChasePlayer();
         }
@@ -41,30 +40,24 @@ public class BadBubble : MonoBehaviour
         {
             isAggroed = false;
         }
-
+        
         if (!isAggroed && isPatrolling)
         {
-            transform.position = Vector3.MoveTowards(patrolPoints[nextPatrolPoint].position, player.transform.position, moveSpeed * Time.deltaTime);
-
-            if (Vector3.Distance(transform.position, patrolPoints[nextPatrolPoint].position) <= 0.1f)
+            transform.position = Vector2.MoveTowards(transform.position, patrolPoints[nextPatrolPoint], moveSpeed * Time.deltaTime);
+                    
+            if (Vector2.Distance(patrolPoints[nextPatrolPoint],transform.position) <= 0.01f)
             {
                 GoToNextPatrolPoint();
             }
         }
         
-        
     }
 
     private void GoToNextPatrolPoint()
     {
-        if (nextPatrolPoint < patrolPoints.Count - 1)
-        {
-            nextPatrolPoint++;
-        }
-        else
-        {
+        nextPatrolPoint++;
+        if(nextPatrolPoint == patrolPoints.Count)
             nextPatrolPoint = 0;
-        }
     }
 
     void ChasePlayer()
@@ -79,16 +72,8 @@ public class BadBubble : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, detectionDistance);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, followDistance);
-
-        if (isPatrolling)
-        {
-            Gizmos.color = Color.white;
-
-            for (int i = 0; i < patrolPoints.Count -1; i++)
-            {
-                Gizmos.DrawLine(patrolPoints[i].position, patrolPoints[i+1].position);
-            }
-            Gizmos.DrawLine(patrolPoints[patrolPoints.Count -1].position, patrolPoints[0].position);
-        }
+        
     }
+    
+    
 }

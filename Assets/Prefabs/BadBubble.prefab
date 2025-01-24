@@ -47,9 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
-  detectionDistance: 4.19
+  detectionDistance: 5.22
   followDistance: 6.77
   moveSpeed: 3
+  isPatrolling: 1
+  patrolPoints: []
 --- !u!212 &3909864102346106203
 SpriteRenderer:
   m_ObjectHideFlags: 0

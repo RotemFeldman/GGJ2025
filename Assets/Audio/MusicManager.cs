@@ -12,7 +12,7 @@ namespace Audio
 
         private void Start()
         {
-            musicInstance = RuntimeManager.CreateInstance(FmodEvents.Instance.Music);
+            musicInstance = AudioManager.Instance.CreateInstance(FmodEvents.Instance.Music);
             musicInstance.start();
         }
 
