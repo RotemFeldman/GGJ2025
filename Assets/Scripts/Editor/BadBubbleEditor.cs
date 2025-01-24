@@ -18,10 +18,8 @@ namespace DefaultNamespace.Editor
             if (!bubble.isPatrolling)
                 return;
             
-            // Iterate through the patrol points
             for (int i = 0; i < bubble.patrolPoints.Count; i++)
             {
-                // Draw a position handle for each patrol point
                 EditorGUI.BeginChangeCheck();
                 Vector3 newPosition = Handles.PositionHandle(bubble.patrolPoints[i], Quaternion.identity);
                 if (EditorGUI.EndChangeCheck())
@@ -31,7 +29,6 @@ namespace DefaultNamespace.Editor
                     EditorUtility.SetDirty(bubble);
                 }
 
-                // Optionally, draw a label
                 Handles.Label(bubble.patrolPoints[i], $"Point {i + 1}", new GUIStyle
                 {
                     fontStyle = FontStyle.Bold,
@@ -39,7 +36,6 @@ namespace DefaultNamespace.Editor
                 });
             }
 
-            // Draw lines between patrol points
             Handles.color = Color.cyan;
             for (int i = 0; i < bubble.patrolPoints.Count - 1; i++)
             {
@@ -63,7 +59,7 @@ namespace DefaultNamespace.Editor
             if (GUILayout.Button("Add Patrol Point"))
             {
                 Undo.RecordObject(bubble, "Add Patrol Point");
-                bubble.patrolPoints.Add(Vector3.zero);
+                bubble.patrolPoints.Add(bubble.transform.position);
                 EditorUtility.SetDirty(bubble);
             }
 
