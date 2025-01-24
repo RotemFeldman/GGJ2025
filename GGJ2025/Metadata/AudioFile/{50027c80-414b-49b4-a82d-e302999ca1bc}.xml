@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{96ea9dd8-2cce-474b-87bc-46c361d5677e}">
+	<object class="AudioFile" id="{50027c80-414b-49b4-a82d-e302999ca1bc}">
 		<property name="assetPath">
-			<value>Test/SFX/footsteps_player_grass_02.ogg</value>
+			<value>Test/Music/music_lvl_02_orchestra_layer_01.ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>48</value>
+			<value>44.0999985</value>
 		</property>
 		<property name="channelCount">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<property name="length">
-			<value>0.49964583333333334</value>
+			<value>56.888888888888886</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{de58e96c-1fab-4c76-8771-ae0dd0186431}</destination>
