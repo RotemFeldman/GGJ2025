@@ -1,4 +1,5 @@
 ﻿using System;
+using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
 
@@ -21,7 +22,17 @@ namespace Audio
             }
         }
         
+        [Header("Music")]
+        public EventReference Music;
+        
         [Header("Player")]
         public EventReference PlayerWalkLoop;
+        
+
+        /*void Foo()
+        {
+            var ins = RuntimeManager.CreateInstance(Music);
+            ins.setParameterByName("")
+        }*/
     }
 }

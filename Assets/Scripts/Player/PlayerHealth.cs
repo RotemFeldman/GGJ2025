@@ -1,6 +1,8 @@
 using System;
 using DG.Tweening;
+using FMOD.Studio;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -11,10 +13,12 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float currentAir;
     [SerializeField] private float decayRate = 1f;
 
-    private float _airT;
+    [FormerlySerializedAs("_airT")] public float AirT;
     
     [SerializeField] Vector3 maxScale = Vector3.one;
     [SerializeField] Vector3 minScale = Vector3.zero;
+    
+    private EventInstance musicInstance;
 
     private void Start()
     {
@@ -24,9 +28,9 @@ public class PlayerHealth : MonoBehaviour
     private void Update()
     {
         currentAir -= decayRate * Time.deltaTime;
-        _airT = currentAir / maxAir;
+        AirT = currentAir / maxAir;
         
-        Vector3 newScale = Vector3.Lerp(minScale, maxScale, _airT);
+        Vector3 newScale = Vector3.Lerp(minScale, maxScale, AirT);
         _playerVisual.transform.localScale = newScale;
     }
 
