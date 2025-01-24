@@ -9,7 +9,8 @@ public class PlayerPickup : MonoBehaviour
     {
         None,
         Key,
-        Goal
+        Goal,
+        Tablet
     }
     
     [SerializeField] SpriteRenderer pickupSprite;
@@ -22,14 +23,19 @@ public class PlayerPickup : MonoBehaviour
         {
             var placement = other.gameObject.GetComponent<PickupPlacement>();
             var placementSprite = placement.GetComponent<SpriteRenderer>();
-            if (pickedUp != PickupType.None && placementSprite.sprite == null)
+            
+
+            if (placement != null)
             {
-                if (placement.placementType == pickedUp)
-                {
-                    pickedUp = PickupType.None;
-                    pickupSprite.sprite = null;
-                    placement.AddSprite();
-                }
+              if (pickedUp != PickupType.None && placementSprite.sprite == null)
+              {
+                  if (placement.placementType == pickedUp)
+                  {
+                      pickedUp = PickupType.None;
+                      pickupSprite.sprite = null;
+                      placement.AddSprite();
+                  }
+              }  
             }
             else if (pickedUp == PickupType.None && placementSprite.sprite != null)
             {
@@ -37,8 +43,30 @@ public class PlayerPickup : MonoBehaviour
                 pickupSprite.sprite = otherSprite.sprite;
                 pickedUp = placement.placementType;
             }
+           
         }
-        if(pickedUp == PickupType.None)
+        else if (other.gameObject.CompareTag("Socket"))
+        {
+            var socket = other.gameObject.GetComponent<Socket>();
+            if (socket != null)
+            {
+                if (pickedUp == PickupType.Tablet && !socket.Active)
+                {
+                    Debug.Log("Player picked up tablet");
+                    socket.Activate();
+                    pickedUp = PickupType.None;
+                    pickupSprite.sprite = null;
+                }
+                else if (pickedUp == PickupType.None && socket.Active)
+                {
+                    Debug.Log("Player picked up none");
+                    pickupSprite.sprite = socket.Disable().sprite;
+                    pickedUp = PickupType.Tablet;
+                }
+                                
+            }
+        }
+        else if(pickedUp == PickupType.None)
         {
             if (other.gameObject.CompareTag("Pickup"))
             {

@@ -1,29 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4598081819252813679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/PlayerHp
-  m_EditorClassIdentifier: 
-  Name: PlayerHp
-  StudioPath: parameter:/PlayerHp
-  Min: 0
-  Max: 1
-  Default: 1
-  ID:
-    data1: 509136616
-    data2: 1442219531
-  Type: 0
-  IsGlobal: 1
-  Labels: []
-  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,14 +18,66 @@ MonoBehaviour:
   - {fileID: 6116364510666368936}
   EditorEvents:
   - {fileID: 4250102531044795199}
-  EditorParameters:
-  - {fileID: -4598081819252813679}
+  - {fileID: 2655690411465073070}
+  EditorParameters: []
   MasterBanks:
   - {fileID: 4619323797289279895}
   StringsBanks:
   - {fileID: 9101235850191071399}
-  cacheTime: 638733181434051093
+  cacheTime: 638733592586444448
   cacheVersion: 131616
+--- !u!114 &2655690411465073070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/MainMusic
+  m_EditorClassIdentifier: 
+  Path: event:/Music/MainMusic
+  Guid:
+    Data1: -1973437337
+    Data2: 1220995705
+    Data3: -636963398
+    Data4: 86241659
+  Banks:
+  - {fileID: 4619323797289279895}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 2933583004282898851}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 103419
+--- !u!114 &2933583004282898851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MainMusic/PlayerHp
+  m_EditorClassIdentifier: 
+  Name: PlayerHp
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 509136616
+    data2: 1442219531
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &4250102531044795199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,10 +120,10 @@ MonoBehaviour:
   Path: GGJ2025/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638733181434035714
+  lastModified: 638733592586424526
   FileSizes:
   - Name: Desktop
-    Value: 1220
+    Value: 11641472
   Exists: 1
 --- !u!114 &6116364510666368936
 MonoBehaviour:
@@ -112,7 +140,7 @@ MonoBehaviour:
   Path: GGJ2025/Build/Desktop/Test.bank
   Name: Test
   StudioPath: bank:/Test
-  lastModified: 638733169114907099
+  lastModified: 638733592586444448
   FileSizes:
   - Name: Desktop
     Value: 16128
@@ -132,8 +160,8 @@ MonoBehaviour:
   Path: GGJ2025/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638733181434051093
+  lastModified: 638733592586434442
   FileSizes:
   - Name: Desktop
-    Value: 860
+    Value: 918
   Exists: 1

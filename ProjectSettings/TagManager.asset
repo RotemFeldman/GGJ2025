@@ -10,6 +10,8 @@ TagManager:
   - StealthBubble
   - Vent
   - Base
+  - Placement
+  - Socket
   layers:
   - Default
   - TransparentFX
