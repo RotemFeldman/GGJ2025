@@ -8,6 +8,7 @@ TagManager:
   - GoodBubble
   - BadBubble
   - StealthBubble
+  - Placement
   layers:
   - Default
   - TransparentFX
