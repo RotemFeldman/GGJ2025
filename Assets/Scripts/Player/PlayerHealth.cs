@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         currentAir = maxAir;
+        AirT = 1;
     }
 
     private void Update()
