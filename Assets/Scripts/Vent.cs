@@ -28,7 +28,7 @@ public class Vent : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.white;
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(child.transform.position, 0.3f);
         Gizmos.DrawLine(transform.position, child.transform.position);
     }
