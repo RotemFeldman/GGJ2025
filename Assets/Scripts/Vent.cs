@@ -25,4 +25,11 @@ public class Vent : MonoBehaviour
             player.transform.DOMove(child.transform.position, 0.5f);
         }));
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(child.transform.position, 0.3f);
+        Gizmos.DrawLine(transform.position, child.transform.position);
+    }
 }
