@@ -57,7 +57,17 @@ public class PlayerHealth : MonoBehaviour
             bubble.Activate(transform);
         }
     }
-    
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Base"))
+        {
+            currentAir += 5 * Time.deltaTime;
+            if(currentAir >= maxAir)
+                currentAir = maxAir;
+        }
+    }
+
 
     void StealthBubblePopped()
     {
