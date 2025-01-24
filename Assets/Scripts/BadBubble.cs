@@ -7,6 +7,8 @@ using UnityEngine;
 public class BadBubble : MonoBehaviour
 {
     public float Damage = 10f;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private Rigidbody2D _rigidbody;
     
     [SerializeField] private float detectionDistance;
     [SerializeField] private float followDistance;
@@ -52,13 +54,14 @@ public class BadBubble : MonoBehaviour
         
         if (!isAggroed && isPatrolling)
         {
-            transform.position = Vector2.MoveTowards(transform.position, patrolPoints[nextPatrolPoint], moveSpeed * Time.deltaTime);
-                    
-            if (Vector2.Distance(patrolPoints[nextPatrolPoint],transform.position) <= 0.01f)
-            {
-                GoToNextPatrolPoint();
-            }
+            Patrol();
         }
+        else if (!isPatrolling)
+        {
+            _rigidbody.linearVelocity = Vector2.zero; 
+        }
+        
+        _animator.SetBool("IsMoving", _rigidbody.linearVelocity.magnitude != 0);
         
     }
 
@@ -81,7 +84,19 @@ public class BadBubble : MonoBehaviour
     void ChasePlayer()
     {
         Vector3 direction = (player.transform.position - transform.position).normalized;
-        transform.position += direction * (moveSpeed * Time.deltaTime);
+        _rigidbody.linearVelocity = direction * moveSpeed;
+    }
+    
+    private void Patrol()
+    {
+        Vector3 target = patrolPoints[nextPatrolPoint];
+        Vector3 direction = (target - transform.position).normalized;
+        _rigidbody.linearVelocity = direction * moveSpeed;
+
+        if (Vector2.Distance(target, transform.position) <= 0.1f)
+        {
+            GoToNextPatrolPoint();
+        }
     }
 
     private void OnDrawGizmosSelected()

@@ -12,6 +12,7 @@ namespace Player
         [SerializeField] float moveSpeed = 5f;
         [SerializeField] Rigidbody2D rb;
         [SerializeField] private GameObject playerSprite;
+        [SerializeField] private Animator animator;
 
         [Header("animating")]
         [SerializeField] private Vector3 squash;
@@ -47,9 +48,11 @@ namespace Player
 
         private void Update()
         {
-            AnimateWalk();
+            //AnimateWalk();
         
             UpdateSound();
+            
+            animator.SetBool("IsMoving",rb.linearVelocity.magnitude != 0);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
