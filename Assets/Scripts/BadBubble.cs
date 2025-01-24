@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
@@ -12,6 +13,9 @@ public class BadBubble : MonoBehaviour
     
     private PlayerHealth player;
     private bool isAggroed;
+    [SerializeField] private bool isPatrolling;
+    [SerializeField] private List<Transform> patrolPoints;
+    private int nextPatrolPoint;
 
     private void Start()
     {
@@ -37,6 +41,30 @@ public class BadBubble : MonoBehaviour
         {
             isAggroed = false;
         }
+
+        if (!isAggroed && isPatrolling)
+        {
+            transform.position = Vector3.MoveTowards(patrolPoints[nextPatrolPoint].position, player.transform.position, moveSpeed * Time.deltaTime);
+
+            if (Vector3.Distance(transform.position, patrolPoints[nextPatrolPoint].position) <= 0.1f)
+            {
+                GoToNextPatrolPoint();
+            }
+        }
+        
+        
+    }
+
+    private void GoToNextPatrolPoint()
+    {
+        if (nextPatrolPoint < patrolPoints.Count - 1)
+        {
+            nextPatrolPoint++;
+        }
+        else
+        {
+            nextPatrolPoint = 0;
+        }
     }
 
     void ChasePlayer()
@@ -51,5 +79,16 @@ public class BadBubble : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, detectionDistance);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, followDistance);
+
+        if (isPatrolling)
+        {
+            Gizmos.color = Color.white;
+
+            for (int i = 0; i < patrolPoints.Count -1; i++)
+            {
+                Gizmos.DrawLine(patrolPoints[i].position, patrolPoints[i+1].position);
+            }
+            Gizmos.DrawLine(patrolPoints[patrolPoints.Count -1].position, patrolPoints[0].position);
+        }
     }
 }
