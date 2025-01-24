@@ -31,11 +31,11 @@ public class StealthBubble : MonoBehaviour
         {
             currentAir -= decayRate * Time.deltaTime;
             _airT = currentAir / maxAir;
+            
             Vector3 newScale = Vector3.Lerp(Vector3.zero, _startScale, _airT); 
             transform.localScale = newScale;
-            
-            Vector3 direction = (player.position - transform.position).normalized;
-            transform.position += direction * (5 * Time.deltaTime);
+
+            transform.position = player.position;
 
             if (_airT <= popThreshold)
             {

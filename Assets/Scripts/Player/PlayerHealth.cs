@@ -29,7 +29,9 @@ public class PlayerHealth : MonoBehaviour
     private void Update()
     {
         currentAir -= decayRate * Time.deltaTime;
-        AirT = currentAir / maxAir;
+        if (currentAir < 0) currentAir = 0;
+        
+        AirT =  currentAir / maxAir;
         
         Vector3 newScale = Vector3.Lerp(minScale, maxScale, AirT);
         _playerVisual.transform.localScale = newScale;
@@ -54,6 +56,7 @@ public class PlayerHealth : MonoBehaviour
             var bubble = other.gameObject.GetComponent<StealthBubble>();
             bubble.OnPopped += StealthBubblePopped;
             IsStealth = true;
+            bubble.transform.DOMove(transform.position, 0.1f);
             bubble.Activate(transform);
         }
     }
@@ -62,7 +65,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Base"))
         {
-            currentAir += 5 * Time.deltaTime;
+            currentAir += (10 + decayRate) * Time.deltaTime;
             if(currentAir >= maxAir)
                 currentAir = maxAir;
         }
