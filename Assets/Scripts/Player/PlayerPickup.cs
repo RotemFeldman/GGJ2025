@@ -17,6 +17,20 @@ public class PlayerPickup : MonoBehaviour
     
     public PickupType pickedUp = PickupType.None;
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Door"))
+        {
+            if (pickedUp == PickupType.Key)
+            {
+               var door = other.gameObject.GetComponent<Door>(); 
+               door.Open();
+               pickedUp = PickupType.None;
+               pickupSprite.sprite = null;
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Placement"))

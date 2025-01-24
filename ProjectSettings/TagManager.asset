@@ -12,6 +12,7 @@ TagManager:
   - Base
   - Placement
   - Socket
+  - Door
   layers:
   - Default
   - TransparentFX
