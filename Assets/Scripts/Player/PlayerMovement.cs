@@ -1,3 +1,4 @@
+using System;
 using Audio;
 using FMOD.Studio;
 using UnityEngine;
@@ -51,6 +52,15 @@ namespace Player
             UpdateSound();
         }
 
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("Vent"))
+            {
+                var vent = other.gameObject.GetComponent<Vent>();
+                vent.MovePlayer(gameObject);
+            }
+        }
+
         void AnimateWalk()
         {
             if (!isMoving)
@@ -63,13 +73,17 @@ namespace Player
             {
                 animT -= Time.deltaTime * animationSpeed;
                 if (animT <= 0)
+                {
                     animDir *= -1;
+                }
+                
             }
             else if (animDir == -1)
             {
                 animT += Time.deltaTime * animationSpeed;
                 if(animT >= 1)
                     animDir *= -1;
+
             }
         }
 
