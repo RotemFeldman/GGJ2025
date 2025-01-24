@@ -13,6 +13,7 @@ namespace Audio
         private void Start()
         {
             musicInstance = RuntimeManager.CreateInstance(FmodEvents.Instance.Music);
+            musicInstance.start();
         }
 
         private void Update()

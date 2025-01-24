@@ -60,11 +60,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Music:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 618704214
+      Data2: 1206737071
+      Data3: -722853970
+      Data4: 1655593572
+    Path: event:/Music/GameMusic
   PlayerWalkLoop:
     Guid:
       Data1: 374480169
