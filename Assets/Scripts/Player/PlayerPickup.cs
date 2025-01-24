@@ -2,6 +2,7 @@ using System;
 using DefaultNamespace;
 using UnityEngine;
 
+
 public class PlayerPickup : MonoBehaviour
 {
     public enum PickupType
@@ -17,7 +18,28 @@ public class PlayerPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.CompareTag("Placement"))
+        {
+            var placement = other.gameObject.GetComponent<PickupPlacement>();
+            var placementSprite = placement.GetComponent<SpriteRenderer>();
+            if (pickedUp != PickupType.None && placementSprite.sprite == null)
+            {
+                if (placement.placementType == pickedUp)
+                {
+                    pickedUp = PickupType.None;
+                    pickupSprite.sprite = null;
+                    placement.AddSprite();
+                }
+            }
+            else if (pickedUp == PickupType.None && placementSprite.sprite != null)
+            {
+                var otherSprite = placement.RemoveSprite();
+                pickupSprite.sprite = otherSprite.sprite;
+                pickedUp = placement.placementType;
+            }
+        }
         if(pickedUp == PickupType.None)
+        {
             if (other.gameObject.CompareTag("Pickup"))
             {
                 var pickup = other.gameObject.GetComponent<Pickup>();
@@ -27,5 +49,6 @@ public class PlayerPickup : MonoBehaviour
             
                 Destroy(other.gameObject);
             }
+        }
     }
 }
