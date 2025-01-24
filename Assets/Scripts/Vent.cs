@@ -6,6 +6,7 @@ using static DG.Tweening.DOTween;
 public class Vent : MonoBehaviour
 {
     [SerializeField] public GameObject child;
+    [SerializeField] public float duration = 0.5f;
 
     /*private void OnTriggerEnter2D(Collider2D other)
     {
@@ -22,7 +23,7 @@ public class Vent : MonoBehaviour
     {
         player.transform.DOMove(transform.position, 0.3f).OnComplete((() =>
         {
-            player.transform.DOMove(child.transform.position, 0.5f);
+            player.transform.DOMove(child.transform.position, duration);
         }));
     }
 

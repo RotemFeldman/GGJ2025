@@ -12,6 +12,10 @@ namespace DefaultNamespace
         [SerializeField] private GameObject child2;
         
         public bool Active;
+        [SerializeField] private GameObject movingObject2;
+        [SerializeField] private GameObject child3;
+        [SerializeField] private GameObject child4;
+        
         [SerializeField] private SpriteRenderer spriteRenderer;
 
         public void Activate()
@@ -19,6 +23,9 @@ namespace DefaultNamespace
             spriteRenderer.enabled = true;
             Active = true;
             movingObject.transform.DOMove(child2.transform.position, 0.5f);
+            
+            if(movingObject2 != null)
+                movingObject2.transform.DOMove(child4.transform.position, 0.5f);
         }
 
         public SpriteRenderer Disable()
@@ -26,6 +33,10 @@ namespace DefaultNamespace
             spriteRenderer.enabled = false;
             Active = false;
             movingObject.transform.DOMove(child1.transform.position, 0.5f);
+            
+            if(movingObject2 != null)
+                movingObject2.transform.DOMove(child3.transform.position, 0.5f);
+            
             return spriteRenderer;
         }
 
@@ -34,6 +45,9 @@ namespace DefaultNamespace
             spriteRenderer.enabled = Active;
             
             movingObject.transform.position = child1.transform.position;
+            
+            if(movingObject2 != null)
+                movingObject2.transform.position = child3.transform.position;
         }
 
         private void OnDrawGizmosSelected()
