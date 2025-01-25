@@ -9,6 +9,7 @@ public class PickupPlacement : MonoBehaviour
     [SerializeField] private SpriteRenderer pickUpDisplay;
     
     public bool isSpecial;
+    
 
     public void AddSprite()
     {
