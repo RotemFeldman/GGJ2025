@@ -1,4 +1,5 @@
 using System;
+using Audio;
 using DefaultNamespace;
 using UnityEngine;
 
@@ -25,6 +26,7 @@ public class PlayerPickup : MonoBehaviour
             {
                var door = other.gameObject.GetComponent<Door>(); 
                door.Open();
+               AudioManager.Instance.PlayOneShot(FmodEvents.Instance.GateOpen, door.transform.position);
                pickedUp = PickupType.None;
                pickupSprite.sprite = null;
             }
@@ -48,6 +50,8 @@ public class PlayerPickup : MonoBehaviour
                       pickedUp = PickupType.None;
                       pickupSprite.sprite = null;
                       placement.AddSprite();
+                      
+                      AudioManager.Instance.PlayOneShot(FmodEvents.Instance.PlaceObject, placement.transform.position);
                   }
               }  
             }
@@ -56,6 +60,8 @@ public class PlayerPickup : MonoBehaviour
                 var otherSprite = placement.RemoveSprite();
                 pickupSprite.sprite = otherSprite.sprite;
                 pickedUp = placement.placementType;
+                
+                AudioManager.Instance.PlayOneShot(FmodEvents.Instance.BubblePickup, placement.transform.position);
             }
            
         }
@@ -70,12 +76,16 @@ public class PlayerPickup : MonoBehaviour
                     socket.Activate();
                     pickedUp = PickupType.None;
                     pickupSprite.sprite = null;
+                    
+                    AudioManager.Instance.PlayOneShot(FmodEvents.Instance.PlaceObject, other.transform.position);
                 }
                 else if (pickedUp == PickupType.None && socket.Active)
                 {
                     Debug.Log("Player picked up none");
                     pickupSprite.sprite = socket.Disable().sprite;
                     pickedUp = PickupType.Tablet;
+                    
+                    AudioManager.Instance.PlayOneShot(FmodEvents.Instance.BubblePickup, other.transform.position);
                 }
                                 
             }
@@ -88,6 +98,8 @@ public class PlayerPickup : MonoBehaviour
                 pickedUp = pickup.pickupType;
                 pickupSprite.sprite = pickup.spriteRenderer.sprite;
                 pickupSprite.color = pickup.spriteRenderer.color;
+                
+                AudioManager.Instance.PlayOneShot(FmodEvents.Instance.BubblePickup, transform.position);
             
                 Destroy(other.gameObject);
             }

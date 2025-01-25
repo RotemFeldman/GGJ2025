@@ -1,4 +1,5 @@
 ﻿using System;
+using Audio;
 using DG.Tweening;
 using UnityEngine;
 
@@ -24,6 +25,8 @@ namespace DefaultNamespace
             Active = true;
             movingObject.transform.DOMove(child2.transform.position, 0.5f);
             
+            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.WallMove,movingObject.transform.position);
+            
             if(movingObject2 != null)
                 movingObject2.transform.DOMove(child4.transform.position, 0.5f);
         }
@@ -33,6 +36,8 @@ namespace DefaultNamespace
             spriteRenderer.enabled = false;
             Active = false;
             movingObject.transform.DOMove(child1.transform.position, 0.5f);
+            
+            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.WallMove,movingObject.transform.position);
             
             if(movingObject2 != null)
                 movingObject2.transform.DOMove(child3.transform.position, 0.5f);

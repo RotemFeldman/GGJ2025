@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{1e3107cf-8ec7-4496-9a6d-4402c770c681}">
+		<property name="assetPath">
+			<value>SFX/gate open.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.53124716553287987</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{de58e96c-1fab-4c76-8771-ae0dd0186431}</destination>
+		</relationship>
+	</object>
+</objects>

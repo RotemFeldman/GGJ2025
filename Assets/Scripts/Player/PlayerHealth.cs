@@ -3,6 +3,7 @@ using System.Collections;
 using Audio;
 using DG.Tweening;
 using FMOD.Studio;
+using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -48,6 +49,12 @@ public class PlayerHealth : MonoBehaviour
 
     private IEnumerator StartPlayerDeath()
     {
+        gameObject.GetComponent<PlayerMovement>().enabled = false;
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.BubblePop, transform.position);
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.Loss, transform.position);
+        
+        yield return new WaitForSeconds(0.5f);
+        
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         yield return null;
     }
@@ -58,6 +65,8 @@ public class PlayerHealth : MonoBehaviour
         {
             var gains = other.gameObject.GetComponent<GoodBubble>().AirAmount;
             currentAir += gains;
+            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.BubbleHeal, transform.position);
+            //AudioManager.Instance.PlayOneShot(FmodEvents.Instance.BubblePop, transform.position);
             Destroy(other.gameObject);
         }
         else if (other.gameObject.CompareTag("BadBubble"))
@@ -65,6 +74,7 @@ public class PlayerHealth : MonoBehaviour
             var lose = other.gameObject.GetComponent<BadBubble>().Damage;
             currentAir -= lose;
             Destroy(other.gameObject);
+            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.BubblePop, transform.position);
         }
         else if (other.gameObject.CompareTag("StealthBubble"))
         {
@@ -72,6 +82,7 @@ public class PlayerHealth : MonoBehaviour
             bubble.OnPopped += StealthBubblePopped;
             IsStealth = true;
             bubble.transform.DOMove(transform.position, 0.1f);
+            AudioManager.Instance.PlayOneShot(FmodEvents.Instance.InvisibleBubble, transform.position);
             bubble.Activate(transform);
         }
     }
@@ -90,5 +101,6 @@ public class PlayerHealth : MonoBehaviour
     void StealthBubblePopped()
     {
         IsStealth = false;
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.BubblePop, transform.position);
     }
 }

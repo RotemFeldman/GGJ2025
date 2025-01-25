@@ -27,7 +27,22 @@ namespace Audio
         
         [Header("Player")]
         public EventReference PlayerWalkLoop;
+        public EventReference BubbleHeal;
+        public EventReference BubblePickup;
+        public EventReference BubblePop;
+        public EventReference InvisibleBubble;
+
+        [Header("Enemies")] 
+        public EventReference EnemyDetect;
         
+        [Header("World")]
+        public EventReference GateOpen;
+        public EventReference TimeBeep;
+        public EventReference WallMove;
+        public EventReference Loss;
+        public EventReference Victory;
+        public EventReference PlaceObject;
+
 
         /*void Foo()
         {
