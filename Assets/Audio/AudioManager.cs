@@ -39,6 +39,31 @@ namespace Audio
             m_EventInstances.Add(instance);
             return instance;
         }
+        
+        public void FadeOutMusic(float duration)
+        {
+            StartCoroutine(FadeOutCoroutine(duration));
+        }
+        
+
+        private System.Collections.IEnumerator FadeOutCoroutine(float duration)
+        {
+            float elapsed = 0f;
+            float initialVolume = 1.0f;
+
+            var eventInstance = MusicManager.Instance.musicInstance;
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float currentVolume = Mathf.Lerp(initialVolume, 0.0f, elapsed / duration);
+                eventInstance.setParameterByName("Volume", currentVolume);
+                yield return null;
+            }
+
+            eventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            eventInstance.release();
+        }
 
         private void CleanUp()
         {

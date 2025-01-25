@@ -21,7 +21,7 @@ namespace Audio
             }
         }
 
-        private EventInstance musicInstance;
+        public EventInstance musicInstance;
         [SerializeField] public PlayerHealth playerHealth;
 
         private void Start()

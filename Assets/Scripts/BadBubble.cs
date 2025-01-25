@@ -28,6 +28,17 @@ public class BadBubble : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Vent"))
+        {
+            transform.DOMove(other.transform.position, 0.3f).onComplete = () =>
+            {
+                Destroy(gameObject);
+            };
+        }
+    }
+
     private void Update()
     {
         
