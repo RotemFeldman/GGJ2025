@@ -7,6 +7,9 @@ public class PickupPlacement : MonoBehaviour
     [SerializeField] public PlayerPickup.PickupType placementType;
     [SerializeField] private SpriteRenderer placedSprite;
     [SerializeField] private SpriteRenderer pickUpDisplay;
+    
+    public bool isSpecial;
+    
 
     public void AddSprite()
     {
