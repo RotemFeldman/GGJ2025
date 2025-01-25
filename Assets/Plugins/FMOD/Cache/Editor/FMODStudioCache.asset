@@ -27,6 +27,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 4000
+--- !u!114 &-8849300864162099636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/MainMenuMusic
+  m_EditorClassIdentifier: 
+  Path: event:/Music/MainMenuMusic
+  Guid:
+    Data1: 1331462546
+    Data2: 1310760627
+    Data3: 863649442
+    Data4: -1959241699
+  Banks:
+  - {fileID: 4619323797289279895}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 78937
 --- !u!114 &-7112355703857687694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,12 +246,13 @@ MonoBehaviour:
   - {fileID: 7522125597535861495}
   - {fileID: 5710831839962774994}
   - {fileID: -2270620038672368049}
+  - {fileID: -8849300864162099636}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4619323797289279895}
   StringsBanks:
   - {fileID: 9101235850191071399}
-  cacheTime: 638734129029593573
+  cacheTime: 638734161516769712
   cacheVersion: 131616
 --- !u!114 &2655690411465073070
 MonoBehaviour:
@@ -347,10 +375,10 @@ MonoBehaviour:
   Path: GGJ2025/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638734129029582914
+  lastModified: 638734161516748401
   FileSizes:
   - Name: Desktop
-    Value: 11796448
+    Value: 12825024
   Exists: 1
 --- !u!114 &5710831839962774994
 MonoBehaviour:
@@ -468,8 +496,8 @@ MonoBehaviour:
   Path: GGJ2025/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638734129029593573
+  lastModified: 638734161516769712
   FileSizes:
   - Name: Desktop
-    Value: 1392
+    Value: 1442
   Exists: 1
