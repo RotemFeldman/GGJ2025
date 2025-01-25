@@ -14,6 +14,8 @@ public class PlayerHealth : MonoBehaviour
     public static PlayerHealth Instance;
     public Action<float> HealthPercent = delegate { };
 
+    private bool died = false;
+
     private void Awake()
     {
         if (Instance == null)
@@ -45,14 +47,19 @@ public class PlayerHealth : MonoBehaviour
         currentAir = maxAir;
         AirT = 1;
         MusicManager.Instance.playerHealth = this;
+        MusicManager.Instance.musicInstance.start();
     }
 
     private void Update()
     {
+        if(died)
+            return;
+        
         currentAir -= decayRate * Time.deltaTime;
         if (currentAir < 0)
         {
             currentAir = 0;
+            died = true;
             StartCoroutine(StartPlayerDeath());
         }
         
@@ -66,11 +73,14 @@ public class PlayerHealth : MonoBehaviour
 
     private IEnumerator StartPlayerDeath()
     {
-        gameObject.GetComponent<PlayerMovement>().enabled = false;
-        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.BubblePop, transform.position);
+        MusicManager.Instance.musicInstance.stop(STOP_MODE.ALLOWFADEOUT);
+        
+        //AudioManager.Instance.PlayOneShot(FmodEvents.Instance.BubblePop, transform.position);
+        
+        yield return new WaitForSeconds(1f);
         AudioManager.Instance.PlayOneShot(FmodEvents.Instance.Loss, transform.position);
         
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         yield return null;
