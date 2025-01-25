@@ -1,5 +1,194 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8928286124957013509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Loss
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Loss
+  Guid:
+    Data1: 1334347950
+    Data2: 1340083932
+    Data3: -632539754
+    Data4: 1330632468
+  Banks:
+  - {fileID: 4619323797289279895}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4000
+--- !u!114 &-7112355703857687694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/BubblePickup
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/BubblePickup
+  Guid:
+    Data1: -944319353
+    Data2: 1207502305
+    Data3: -1410167382
+    Data4: -1041058335
+  Banks:
+  - {fileID: 4619323797289279895}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 197
+--- !u!114 &-3787406051931394996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/PlaceObjective
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/PlaceObjective
+  Guid:
+    Data1: 1129201123
+    Data2: 1303970763
+    Data3: 249739410
+    Data4: 694049176
+  Banks:
+  - {fileID: 4619323797289279895}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 298
+--- !u!114 &-2983010132627509700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Victory
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Victory
+  Guid:
+    Data1: -1420279913
+    Data2: 1194355699
+    Data3: -2137285225
+    Data4: -33448442
+  Banks:
+  - {fileID: 4619323797289279895}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3481
+--- !u!114 &-2270620038672368049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/WallMove
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/WallMove
+  Guid:
+    Data1: 817023742
+    Data2: 1216691643
+    Data3: -1074819710
+    Data4: -826022691
+  Banks:
+  - {fileID: 4619323797289279895}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 562
+--- !u!114 &-1994251356506940169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/GateOpen
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/GateOpen
+  Guid:
+    Data1: -1772789279
+    Data2: 1167406665
+    Data3: -1490900316
+    Data4: -691518311
+  Banks:
+  - {fileID: 4619323797289279895}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 531
+--- !u!114 &-1874772838232811272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/BubblePop
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/BubblePop
+  Guid:
+    Data1: -179751550
+    Data2: 1234928966
+    Data3: -1801228611
+    Data4: -815372459
+  Banks:
+  - {fileID: 4619323797289279895}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 9034
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19,12 +208,23 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: 4250102531044795199}
   - {fileID: 2655690411465073070}
+  - {fileID: 6773169894249610960}
+  - {fileID: -1874772838232811272}
+  - {fileID: -7112355703857687694}
+  - {fileID: -2983010132627509700}
+  - {fileID: -8928286124957013509}
+  - {fileID: -1994251356506940169}
+  - {fileID: -3787406051931394996}
+  - {fileID: 3740426621247841997}
+  - {fileID: 7522125597535861495}
+  - {fileID: 5710831839962774994}
+  - {fileID: -2270620038672368049}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4619323797289279895}
   StringsBanks:
   - {fileID: 9101235850191071399}
-  cacheTime: 638733556783243959
+  cacheTime: 638734019523883659
   cacheVersion: 131616
 --- !u!114 &2655690411465073070
 MonoBehaviour:
@@ -78,6 +278,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &3740426621247841997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Invisible
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Invisible
+  Guid:
+    Data1: 1998602979
+    Data2: 1291701875
+    Data3: 525644691
+    Data4: 2075271757
+  Banks:
+  - {fileID: 4619323797289279895}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 686
 --- !u!114 &4250102531044795199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +331,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 500
+  Length: 625
 --- !u!114 &4619323797289279895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,11 +347,38 @@ MonoBehaviour:
   Path: GGJ2025/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638733556783224049
+  lastModified: 638734019523864052
   FileSizes:
   - Name: Desktop
-    Value: 11641472
+    Value: 11795872
   Exists: 1
+--- !u!114 &5710831839962774994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/TimeBeep
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/TimeBeep
+  Guid:
+    Data1: 498898671
+    Data2: 1088878737
+    Data3: 1505694655
+    Data4: 2092744949
+  Banks:
+  - {fileID: 4619323797289279895}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
 --- !u!114 &6116364510666368936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,11 +394,65 @@ MonoBehaviour:
   Path: GGJ2025/Build/Desktop/Test.bank
   Name: Test
   StudioPath: bank:/Test
-  lastModified: 638733556783243959
+  lastModified: 638734019523883659
   FileSizes:
   - Name: Desktop
-    Value: 16128
+    Value: 8832
   Exists: 1
+--- !u!114 &6773169894249610960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/EnemyDetect
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/EnemyDetect
+  Guid:
+    Data1: 1400045862
+    Data2: 1158679321
+    Data3: -644035708
+    Data4: -123534591
+  Banks:
+  - {fileID: 4619323797289279895}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 178
+--- !u!114 &7522125597535861495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/BubbleHeal
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/BubbleHeal
+  Guid:
+    Data1: 763394542
+    Data2: 1163001875
+    Data3: -1577099879
+    Data4: 1188893496
+  Banks:
+  - {fileID: 4619323797289279895}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 352
 --- !u!114 &9101235850191071399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,8 +468,8 @@ MonoBehaviour:
   Path: GGJ2025/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638733556783233986
+  lastModified: 638734019523873708
   FileSizes:
   - Name: Desktop
-    Value: 918
+    Value: 1392
   Exists: 1
