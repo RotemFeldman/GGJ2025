@@ -9,6 +9,7 @@ public class BadBubble : MonoBehaviour
 {
     public float Damage = 10f;
     [SerializeField] private Animator _animator;
+    [SerializeField] private Animator _markAnimator;
     [SerializeField] private Rigidbody2D _rigidbody;
     
     [SerializeField] private float detectionDistance;
@@ -21,10 +22,12 @@ public class BadBubble : MonoBehaviour
     [SerializeField] public List<Vector3> patrolPoints = new List<Vector3>();
     private int nextPatrolPoint = 0;
     private bool isAlerting = false;
+    private bool wait;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        _markAnimator.gameObject.SetActive(false);
         
     }
 
@@ -41,6 +44,12 @@ public class BadBubble : MonoBehaviour
 
     private void Update()
     {
+
+        if (wait)
+        {
+            _rigidbody.linearVelocity = Vector2.zero;
+            return;
+        }
         
         var distance = Vector3.Distance(player.transform.position, transform.position);
         if (distance <= detectionDistance && !player.IsStealth)
@@ -80,10 +89,15 @@ public class BadBubble : MonoBehaviour
     private IEnumerator AlertAnimation()
     {
         isAlerting = true;
+        _markAnimator.gameObject.SetActive(true);
+        wait = true;
         
         AudioManager.Instance.PlayOneShot(FmodEvents.Instance.EnemyDetect, transform.position);
+        _markAnimator.SetTrigger("Trigger");
         
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
+        _markAnimator.gameObject.SetActive(false);
+        wait = false;
         
         isAlerting = false;
     }
