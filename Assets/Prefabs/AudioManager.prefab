@@ -72,6 +72,83 @@ MonoBehaviour:
       Data3: 757625730
       Data4: 572278568
     Path: event:/SFX/PlayerWalk
+  BubbleHeal:
+    Guid:
+      Data1: 763394542
+      Data2: 1163001875
+      Data3: -1577099879
+      Data4: 1188893496
+    Path: event:/SFX/BubbleHeal
+  BubblePickup:
+    Guid:
+      Data1: -944319353
+      Data2: 1207502305
+      Data3: -1410167382
+      Data4: -1041058335
+    Path: event:/SFX/BubblePickup
+  BubblePop:
+    Guid:
+      Data1: -179751550
+      Data2: 1234928966
+      Data3: -1801228611
+      Data4: -815372459
+    Path: event:/SFX/BubblePop
+  InvisibleBubble:
+    Guid:
+      Data1: 1998602979
+      Data2: 1291701875
+      Data3: 525644691
+      Data4: 2075271757
+    Path: event:/SFX/Invisible
+  EnemyDetect:
+    Guid:
+      Data1: 1400045862
+      Data2: 1158679321
+      Data3: -644035708
+      Data4: -123534591
+    Path: event:/SFX/EnemyDetect
+  GateOpen:
+    Guid:
+      Data1: -1772789279
+      Data2: 1167406665
+      Data3: -1490900316
+      Data4: -691518311
+    Path: event:/SFX/GateOpen
+  TimeBeep:
+    Guid:
+      Data1: 498898671
+      Data2: 1088878737
+      Data3: 1505694655
+      Data4: 2092744949
+    Path: event:/SFX/TimeBeep
+  WallMove:
+    Guid:
+      Data1: 817023742
+      Data2: 1216691643
+      Data3: -1074819710
+      Data4: -826022691
+    Path: event:/SFX/WallMove
+  Loss:
+    Guid:
+      Data1: 1334347950
+      Data2: 1340083932
+      Data3: -632539754
+      Data4: 1330632468
+    Path: event:/SFX/Loss
+  Victory:
+    Guid:
+      Data1: -1420279913
+      Data2: 1194355699
+      Data3: -2137285225
+      Data4: -33448442
+    Path: event:/SFX/Victory
+  PlaceObject:
+    Guid:
+      Data1: 1129201123
+      Data2: 1303970763
+      Data3: 249739410
+      Data4: 694049176
+    Path: event:/SFX/PlaceObjective
 --- !u!114 &2949822831434244585
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using DG.Tweening;
 using UnityEngine;
 
@@ -68,6 +69,8 @@ public class BadBubble : MonoBehaviour
     private IEnumerator AlertAnimation()
     {
         isAlerting = true;
+        
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.EnemyDetect, transform.position);
         
         yield return new WaitForSeconds(0.5f);
         
