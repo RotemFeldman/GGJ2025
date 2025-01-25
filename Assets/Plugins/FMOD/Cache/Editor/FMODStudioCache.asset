@@ -224,7 +224,7 @@ MonoBehaviour:
   - {fileID: 4619323797289279895}
   StringsBanks:
   - {fileID: 9101235850191071399}
-  cacheTime: 638734019523883659
+  cacheTime: 638734129029593573
   cacheVersion: 131616
 --- !u!114 &2655690411465073070
 MonoBehaviour:
@@ -347,10 +347,10 @@ MonoBehaviour:
   Path: GGJ2025/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638734019523864052
+  lastModified: 638734129029582914
   FileSizes:
   - Name: Desktop
-    Value: 11795872
+    Value: 11796448
   Exists: 1
 --- !u!114 &5710831839962774994
 MonoBehaviour:
@@ -394,7 +394,7 @@ MonoBehaviour:
   Path: GGJ2025/Build/Desktop/Test.bank
   Name: Test
   StudioPath: bank:/Test
-  lastModified: 638734019523883659
+  lastModified: 638734129029593573
   FileSizes:
   - Name: Desktop
     Value: 8832
@@ -468,7 +468,7 @@ MonoBehaviour:
   Path: GGJ2025/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638734019523873708
+  lastModified: 638734129029593573
   FileSizes:
   - Name: Desktop
     Value: 1392
