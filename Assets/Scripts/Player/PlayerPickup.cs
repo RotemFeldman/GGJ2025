@@ -10,8 +10,10 @@ public class PlayerPickup : MonoBehaviour
     {
         None,
         Key,
-        Goal,
-        Tablet
+        Tablet,
+        GoalRed,
+        GoalBlue,
+        GoalPurple
     }
     
     [SerializeField] SpriteRenderer pickupSprite;
@@ -50,20 +52,27 @@ public class PlayerPickup : MonoBehaviour
                       pickedUp = PickupType.None;
                       pickupSprite.sprite = null;
                       placement.AddSprite();
+                      if (placement.isSpecial)
+                      {
+                          GameManager.Instance.CheckWinningCondition();
+                      }
                       
                       AudioManager.Instance.PlayOneShot(FmodEvents.Instance.PlaceObject, placement.transform.position);
                   }
               }  
-            }
-            else if (pickedUp == PickupType.None && placementSprite.sprite != null)
-            {
-                var otherSprite = placement.RemoveSprite();
-                pickupSprite.sprite = otherSprite.sprite;
-                pickedUp = placement.placementType;
+              else if (pickedUp == PickupType.None && placementSprite.sprite != null && !placement.isSpecial)
+              {
+                  var otherSprite = placement.RemoveSprite();
+                  pickupSprite.sprite = otherSprite.sprite;
+                  pickedUp = placement.placementType;
+                  if (placement.isSpecial)
+                  {
+                      GameManager.Instance.CheckWinningCondition();
+                  }
                 
-                AudioManager.Instance.PlayOneShot(FmodEvents.Instance.BubblePickup, placement.transform.position);
+                  AudioManager.Instance.PlayOneShot(FmodEvents.Instance.BubblePickup, placement.transform.position);
+              }
             }
-           
         }
         else if (other.gameObject.CompareTag("Socket"))
         {
@@ -99,9 +108,10 @@ public class PlayerPickup : MonoBehaviour
                 pickupSprite.sprite = pickup.spriteRenderer.sprite;
                 pickupSprite.color = pickup.spriteRenderer.color;
                 
+                Destroy(other.gameObject);
                 AudioManager.Instance.PlayOneShot(FmodEvents.Instance.BubblePickup, transform.position);
             
-                Destroy(other.gameObject);
+
             }
         }
     }
