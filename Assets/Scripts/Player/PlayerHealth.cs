@@ -7,12 +7,14 @@ using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
     
     public static PlayerHealth Instance;
     public Action<float> HealthPercent = delegate { };
+    public Image BlackOverlay;
 
     private bool died = false;
 
@@ -47,7 +49,6 @@ public class PlayerHealth : MonoBehaviour
         currentAir = maxAir;
         AirT = 1;
         MusicManager.Instance.playerHealth = this;
-        MusicManager.Instance.musicInstance.start();
     }
 
     private void Update()
@@ -73,17 +74,41 @@ public class PlayerHealth : MonoBehaviour
 
     private IEnumerator StartPlayerDeath()
     {
-        MusicManager.Instance.musicInstance.stop(STOP_MODE.ALLOWFADEOUT);
+        //MusicManager.Instance.musicInstance.stop(STOP_MODE.ALLOWFADEOUT);
+        StartCoroutine(ChangeAlphaCoroutine());
         
         //AudioManager.Instance.PlayOneShot(FmodEvents.Instance.BubblePop, transform.position);
         
         yield return new WaitForSeconds(1f);
-        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.Loss, transform.position);
+        AudioManager.Instance.PlayOneShot(FmodEvents.Instance.BubblePop, transform.position);
         
         yield return new WaitForSeconds(1f);
         
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         yield return null;
+    }
+    
+    private IEnumerator ChangeAlphaCoroutine()
+    {
+        if (BlackOverlay == null) yield break;
+
+        // Get the current color
+        Color color = BlackOverlay.color;
+        float elapsedTime = 0f;
+
+        // Transition from minAlpha to maxAlpha
+        while (elapsedTime < 1f)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsedTime / 1f);
+            color.a = Mathf.Lerp(0f, 1f, t);
+            BlackOverlay.color = color;
+            yield return null;
+        }
+
+        // Ensure the final value is set precisely
+        color.a = 1f;
+        BlackOverlay.color = color;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
