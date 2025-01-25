@@ -11,6 +11,21 @@ using UnityEngine.Serialization;
 public class PlayerHealth : MonoBehaviour
 {
     
+    public static PlayerHealth Instance;
+    public Action<float> HealthPercent = delegate { };
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public bool IsStealth;
     [SerializeField] private GameObject _playerVisual;
 
@@ -45,6 +60,8 @@ public class PlayerHealth : MonoBehaviour
         
         Vector3 newScale = Vector3.Lerp(minScale, maxScale, AirT);
         _playerVisual.transform.localScale = newScale;
+        
+        HealthPercent.Invoke(AirT);
     }
 
     private IEnumerator StartPlayerDeath()
