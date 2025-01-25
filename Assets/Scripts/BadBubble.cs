@@ -89,15 +89,14 @@ public class BadBubble : MonoBehaviour
     private IEnumerator AlertAnimation()
     {
         isAlerting = true;
-        _markAnimator.gameObject.SetActive(true);
         wait = true;
         
         AudioManager.Instance.PlayOneShot(FmodEvents.Instance.EnemyDetect, transform.position);
-        _markAnimator.SetTrigger("Trigger");
+        _markAnimator.gameObject.SetActive(true);
         
-        yield return new WaitForSeconds(1f);
-        _markAnimator.gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
         wait = false;
+        _markAnimator.gameObject.SetActive(false);
         
         isAlerting = false;
     }
