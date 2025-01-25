@@ -1,11 +1,15 @@
 using System;
+using System.Collections;
+using Audio;
 using DG.Tweening;
 using FMOD.Studio;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class PlayerHealth : MonoBehaviour
 {
+    
     public bool IsStealth;
     [SerializeField] private GameObject _playerVisual;
 
@@ -20,21 +24,32 @@ public class PlayerHealth : MonoBehaviour
     
     private EventInstance musicInstance;
 
-    private void Start()
+    private void OnEnable()
     {
         currentAir = maxAir;
         AirT = 1;
+        MusicManager.Instance.playerHealth = this;
     }
 
     private void Update()
     {
         currentAir -= decayRate * Time.deltaTime;
-        if (currentAir < 0) currentAir = 0;
+        if (currentAir < 0)
+        {
+            currentAir = 0;
+            StartCoroutine(StartPlayerDeath());
+        }
         
         AirT =  currentAir / maxAir;
         
         Vector3 newScale = Vector3.Lerp(minScale, maxScale, AirT);
         _playerVisual.transform.localScale = newScale;
+    }
+
+    private IEnumerator StartPlayerDeath()
+    {
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        yield return null;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -7,14 +7,30 @@ namespace Audio
 {
     public class MusicManager : MonoBehaviour
     {
+        public static MusicManager Instance;
+
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+
         private EventInstance musicInstance;
-        [SerializeField] PlayerHealth playerHealth;
+        [SerializeField] public PlayerHealth playerHealth;
 
         private void Start()
         {
             musicInstance = AudioManager.Instance.CreateInstance(FmodEvents.Instance.Music);
             musicInstance.start();
         }
+        
+        
 
         private void Update()
         {
