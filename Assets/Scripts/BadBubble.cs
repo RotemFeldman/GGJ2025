@@ -11,6 +11,8 @@ public class BadBubble : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private Animator _markAnimator;
     [SerializeField] private Rigidbody2D _rigidbody;
+    [SerializeField] private SpriteRenderer _faceRenderer;
+    public Sprite[] faces;
     
     [SerializeField] private float detectionDistance;
     [SerializeField] private float followDistance;
@@ -28,6 +30,7 @@ public class BadBubble : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         _markAnimator.gameObject.SetActive(false);
+        _faceRenderer.sprite = faces[0];
         
     }
 
@@ -71,6 +74,7 @@ public class BadBubble : MonoBehaviour
         else
         {
             isAggroed = false;
+            _faceRenderer.sprite = faces[0];
         }
         
         if (!isAggroed && isPatrolling)
@@ -93,10 +97,12 @@ public class BadBubble : MonoBehaviour
         
         AudioManager.Instance.PlayOneShot(FmodEvents.Instance.EnemyDetect, transform.position);
         _markAnimator.gameObject.SetActive(true);
+        _faceRenderer.sprite = faces[1];
         
         yield return new WaitForSeconds(0.5f);
         wait = false;
         _markAnimator.gameObject.SetActive(false);
+        StartCoroutine(AnimateFaceChasing());
         
         isAlerting = false;
     }
@@ -110,10 +116,24 @@ public class BadBubble : MonoBehaviour
 
     void ChasePlayer()
     {
+        
         Vector3 direction = (player.transform.position - transform.position).normalized;
         _rigidbody.linearVelocity = direction * moveSpeed;
     }
-    
+
+    private IEnumerator AnimateFaceChasing()
+    {
+        if (isAggroed)
+        {
+            _faceRenderer.sprite = faces[3];
+            yield return new WaitForSeconds(0.15f);
+            _faceRenderer.sprite = faces[2];
+            yield return new WaitForSeconds(0.15f);
+            StartCoroutine(AnimateFaceChasing());
+        }
+        
+    }
+
     private void Patrol()
     {
         Vector3 target = patrolPoints[nextPatrolPoint];

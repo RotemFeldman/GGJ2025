@@ -98,7 +98,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 60
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -185,7 +185,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1588508823
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 61
   m_Sprite: {fileID: -1970156980, guid: ab30ef03971c8ca4a88074abc2497df6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -252,6 +252,12 @@ MonoBehaviour:
   _animator: {fileID: 6074688428445018858}
   _markAnimator: {fileID: 4501145901761698344}
   _rigidbody: {fileID: 2481397375290820642}
+  _faceRenderer: {fileID: 6932942031632335417}
+  faces:
+  - {fileID: 843088206, guid: ab30ef03971c8ca4a88074abc2497df6, type: 3}
+  - {fileID: 1201643600, guid: ab30ef03971c8ca4a88074abc2497df6, type: 3}
+  - {fileID: -1077536638, guid: ab30ef03971c8ca4a88074abc2497df6, type: 3}
+  - {fileID: -1970156980, guid: ab30ef03971c8ca4a88074abc2497df6, type: 3}
   detectionDistance: 5.22
   followDistance: 6.77
   moveSpeed: 3
@@ -300,7 +306,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 60
   m_Sprite: {fileID: 714232345, guid: eb128f80ba8df794cbf4e2d23ca68476, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
